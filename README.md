@@ -205,7 +205,7 @@ This pairing is stronger on skin texture while still staying more natural than g
 
 `Radz SDXL Skin Realism` starts more conservatively:
 
-- `upscale_model = none`
+- `upscale_model = 4xFFHQDAT.pth`
 - `upscale_model_2 = 1xSkinContrast-High-SuperUltraCompact.pth`
 - `upscale_model_3 = none`
 - `skin_enhancer_model = x1_ITF_SkinDiffDetail_Lite_v1.pth`

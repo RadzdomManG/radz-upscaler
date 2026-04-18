@@ -739,7 +739,7 @@ class RadzSDXLSkinRealismNode(RadzHumanSkinDetailsNode):
     @classmethod
     def INPUT_TYPES(cls):
         return cls._build_input_types(
-            default_upscale_preference="none",
+            default_upscale_preference="4xFFHQDAT.pth",
             default_upscale_2_preference="1xSkinContrast-High-SuperUltraCompact.pth",
             default_upscale_3_preference="none",
             default_skin_detail=0.72,
