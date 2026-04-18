@@ -1,6 +1,6 @@
-# Radz Upscaler
+# Radz Human Skin Details
 
-`Radz Upscaler` is a ComfyUI custom node for realistic human portrait enhancement.
+`Radz Human Skin Details` is a ComfyUI custom node for realistic human portrait enhancement.
 
 It is designed to sit after `VAE Decode` and gently improve:
 
@@ -47,21 +47,21 @@ Look for:
 Place the package here:
 
 ```text
-ComfyUI/custom_nodes/rodz_real_human_detail/
+ComfyUI/custom_nodes/radz_human_skin_details/
 ```
 
 Files:
 
 ```text
-custom_nodes/rodz_real_human_detail/__init__.py
-custom_nodes/rodz_real_human_detail/real_human_detail_node.py
-custom_nodes/rodz_real_human_detail/requirements.txt
-custom_nodes/rodz_real_human_detail/README.md
+custom_nodes/radz_human_skin_details/__init__.py
+custom_nodes/radz_human_skin_details/real_human_detail_node.py
+custom_nodes/radz_human_skin_details/requirements.txt
+custom_nodes/radz_human_skin_details/README.md
 ```
 
 ## Installation
 
-1. Copy the folder `rodz_real_human_detail` into:
+1. Copy the folder `radz_human_skin_details` into:
 
    ```text
    ComfyUI/custom_nodes/
@@ -72,7 +72,7 @@ custom_nodes/rodz_real_human_detail/README.md
    For the Windows portable build, from the portable root:
 
    ```powershell
-   python_embeded\python.exe -m pip install -r ComfyUI\custom_nodes\rodz_real_human_detail\requirements.txt
+   python_embeded\python.exe -m pip install -r ComfyUI\custom_nodes\radz_human_skin_details\requirements.txt
    ```
 
 3. Restart ComfyUI.
@@ -80,13 +80,13 @@ custom_nodes/rodz_real_human_detail/README.md
 4. Search for this node in ComfyUI:
 
    ```text
-   Radz Upscaler
+   Radz Human Skin Details
    ```
 
 Category:
 
 ```text
-Radz/Upscaler
+Radz/Skin
 ```
 
 ## Recommended Workflow Placement
@@ -97,7 +97,7 @@ Typical connection:
 Checkpoint Loader
 -> KSampler
 -> VAE Decode
--> Radz Upscaler
+-> Radz Human Skin Details
 -> Save Image
 ```
 
@@ -203,7 +203,7 @@ without:
 You can add a trained model later by placing model files inside:
 
 ```text
-ComfyUI/custom_nodes/rodz_real_human_detail/models/
+ComfyUI/custom_nodes/radz_human_skin_details/models/
 ```
 
 Then wire your model into:

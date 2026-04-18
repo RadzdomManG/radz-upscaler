@@ -199,7 +199,7 @@ class RealHumanDetailEngine:
         Future model hook.
 
         Drop a TorchScript or PyTorch checkpoint in:
-        custom_nodes/rodz_real_human_detail/models/
+        custom_nodes/radz_human_skin_details/models/
 
         Replace this stub with your own loading and inference logic later.
         """
@@ -454,8 +454,8 @@ class RealHumanDetailEngine:
         return F.conv2d(padded, kernel, groups=image.shape[1])
 
 
-class RodzRealHumanDetailNode:
-    CATEGORY = "Radz/Upscaler"
+class RadzHumanSkinDetailsNode:
+    CATEGORY = "Radz/Skin"
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("image",)
     FUNCTION = "process"
@@ -578,7 +578,7 @@ class RodzRealHumanDetailNode:
 
     def _prepare_image_tensor(self, image: torch.Tensor) -> torch.Tensor:
         if image.ndim != 4 or image.shape[-1] != 3:
-            raise ValueError("Radz Upscaler expects an IMAGE tensor with shape (B, H, W, 3).")
+            raise ValueError("Radz Human Skin Details expects an IMAGE tensor with shape (B, H, W, 3).")
         if not torch.is_floating_point(image):
             image = image.float()
         return image.clamp(0.0, 1.0)
@@ -698,10 +698,12 @@ class RodzRealHumanDetailNode:
 
 
 NODE_CLASS_MAPPINGS = {
-    "RodzRealHumanDetail": RodzRealHumanDetailNode,
+    "RodzRealHumanDetail": RadzHumanSkinDetailsNode,
+    "RadzHumanSkinDetails": RadzHumanSkinDetailsNode,
 }
 
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "RodzRealHumanDetail": "Radz Upscaler",
+    "RodzRealHumanDetail": "Radz Human Skin Details",
+    "RadzHumanSkinDetails": "Radz Human Skin Details",
 }
