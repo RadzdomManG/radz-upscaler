@@ -1,6 +1,6 @@
-# Radz Real Human Detail
+# Radz Upscaler
 
-`Radz Real Human Detail` is a ComfyUI custom node for realistic human portrait enhancement.
+`Radz Upscaler` is a ComfyUI custom node for realistic human portrait enhancement.
 
 It is designed to sit after `VAE Decode` and gently improve:
 
@@ -80,13 +80,13 @@ custom_nodes/rodz_real_human_detail/README.md
 4. Search for this node in ComfyUI:
 
    ```text
-   Radz Real Human Detail
+   Radz Upscaler
    ```
 
 Category:
 
 ```text
-Radz/Realism
+Radz/Upscaler
 ```
 
 ## Recommended Workflow Placement
@@ -97,7 +97,7 @@ Typical connection:
 Checkpoint Loader
 -> KSampler
 -> VAE Decode
--> Radz Real Human Detail
+-> Radz Upscaler
 -> Save Image
 ```
 

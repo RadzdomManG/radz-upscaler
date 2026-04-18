@@ -455,7 +455,7 @@ class RealHumanDetailEngine:
 
 
 class RodzRealHumanDetailNode:
-    CATEGORY = "Radz/Realism"
+    CATEGORY = "Radz/Upscaler"
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("image",)
     FUNCTION = "process"
@@ -578,7 +578,7 @@ class RodzRealHumanDetailNode:
 
     def _prepare_image_tensor(self, image: torch.Tensor) -> torch.Tensor:
         if image.ndim != 4 or image.shape[-1] != 3:
-            raise ValueError("Radz Real Human Detail expects an IMAGE tensor with shape (B, H, W, 3).")
+            raise ValueError("Radz Upscaler expects an IMAGE tensor with shape (B, H, W, 3).")
         if not torch.is_floating_point(image):
             image = image.float()
         return image.clamp(0.0, 1.0)
@@ -703,5 +703,5 @@ NODE_CLASS_MAPPINGS = {
 
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "RodzRealHumanDetail": "Radz Real Human Detail",
+    "RodzRealHumanDetail": "Radz Upscaler",
 }
