@@ -83,10 +83,22 @@ custom_nodes/radz_human_skin_details/README.md
    Radz Human Skin Details
    ```
 
+   and:
+
+   ```text
+   Radz SDXL Skin Realism
+   ```
+
 Category:
 
 ```text
 Radz/Skin
+```
+
+Additional category:
+
+```text
+Radz/SDXL
 ```
 
 ## Recommended Workflow Placement
@@ -100,6 +112,17 @@ Checkpoint Loader
 -> Radz Human Skin Details
 -> Save Image
 ```
+
+SDXL upscale workflow placement:
+
+```text
+SDXL Image/Latent Upscale
+-> VAE Decode
+-> Radz SDXL Skin Realism
+-> Save Image
+```
+
+The SDXL node is intended for images that were already enlarged by an SDXL upscale/refiner workflow and need believable skin cleanup rather than another heavy upscale pass.
 
 This node expects an `IMAGE` input and outputs one `IMAGE`.
 
@@ -177,6 +200,25 @@ Best skin-focused upscaler pairing:
 - `x1_ITF_SkinDiffDetail_Lite_v1.pth` as the skin enhancer
 
 This pairing is stronger on skin texture while still staying more natural than generic sharpness-focused upscalers.
+
+## SDXL Skin Node Defaults
+
+`Radz SDXL Skin Realism` starts more conservatively:
+
+- `upscale_model = none`
+- `upscale_model_2 = 1xSkinContrast-High-SuperUltraCompact.pth`
+- `upscale_model_3 = none`
+- `skin_enhancer_model = x1_ITF_SkinDiffDetail_Lite_v1.pth`
+- `skin_detail = 0.72`
+- `eye_detail = 0.22`
+- `baby_hair = 0.08`
+- `film_grain = 0.00`
+- `naturalness = 0.88`
+- `strength = 0.52`
+- `upscale_factor = 1x`
+- `mode = detail_only`
+
+Use it after the SDXL upscale stage, not before.
 
 For a slightly richer photographic finish:
 

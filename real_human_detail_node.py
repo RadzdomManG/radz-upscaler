@@ -471,16 +471,42 @@ class RadzHumanSkinDetailsNode:
 
     @classmethod
     def INPUT_TYPES(cls):
-        upscale_models = ["none"] + folder_paths.get_filename_list("upscale_models")
-        default_upscale = (
-            "4xFaceUpDAT.pth"
-            if "4xFaceUpDAT.pth" in upscale_models
-            else (
-                "RealESRGAN_x2.pth"
-                if "RealESRGAN_x2.pth" in upscale_models
-                else ("RealESRGAN_x4plus.safetensors" if "RealESRGAN_x4plus.safetensors" in upscale_models else upscale_models[0])
-            )
+        return cls._build_input_types(
+            default_upscale_preference="4xFaceUpDAT.pth",
+            default_upscale_2_preference="1xSkinContrast-High-SuperUltraCompact.pth",
+            default_upscale_3_preference="none",
+            default_skin_detail=0.74,
+            default_eye_detail=0.24,
+            default_baby_hair=0.10,
+            default_film_grain=0.01,
+            default_naturalness=0.80,
+            default_strength=0.64,
+            default_upscale_factor="2x",
+            default_mode="detail_only",
         )
+
+    @classmethod
+    def _build_input_types(
+        cls,
+        default_upscale_preference: str,
+        default_upscale_2_preference: str,
+        default_upscale_3_preference: str,
+        default_skin_detail: float,
+        default_eye_detail: float,
+        default_baby_hair: float,
+        default_film_grain: float,
+        default_naturalness: float,
+        default_strength: float,
+        default_upscale_factor: str,
+        default_mode: str,
+    ):
+        upscale_models = ["none"] + folder_paths.get_filename_list("upscale_models")
+        fallback_upscale = (
+            "RealESRGAN_x2.pth"
+            if "RealESRGAN_x2.pth" in upscale_models
+            else ("RealESRGAN_x4plus.safetensors" if "RealESRGAN_x4plus.safetensors" in upscale_models else upscale_models[0])
+        )
+        default_upscale = default_upscale_preference if default_upscale_preference in upscale_models else fallback_upscale
         default_skin = (
             "x1_ITF_SkinDiffDetail_Lite_v1.pth"
             if "x1_ITF_SkinDiffDetail_Lite_v1.pth" in upscale_models
@@ -494,8 +520,8 @@ class RadzHumanSkinDetailsNode:
                     upscale_models,
                     {
                         "default": (
-                            "1xSkinContrast-High-SuperUltraCompact.pth"
-                            if "1xSkinContrast-High-SuperUltraCompact.pth" in upscale_models
+                            default_upscale_2_preference
+                            if default_upscale_2_preference in upscale_models
                             else "none"
                         )
                     },
@@ -503,18 +529,22 @@ class RadzHumanSkinDetailsNode:
                 "upscale_model_3": (
                     upscale_models,
                     {
-                        "default": "none"
+                        "default": (
+                            default_upscale_3_preference
+                            if default_upscale_3_preference in upscale_models
+                            else "none"
+                        )
                     },
                 ),
                 "skin_enhancer_model": (upscale_models, {"default": default_skin}),
-                "skin_detail": ("FLOAT", {"default": 0.74, "min": 0.01, "max": 1.0, "step": 0.01}),
-                "eye_detail": ("FLOAT", {"default": 0.24, "min": 0.01, "max": 1.0, "step": 0.01}),
-                "baby_hair": ("FLOAT", {"default": 0.10, "min": 0.01, "max": 1.0, "step": 0.01}),
-                "film_grain": ("FLOAT", {"default": 0.01, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "naturalness": ("FLOAT", {"default": 0.8, "min": 0.01, "max": 1.0, "step": 0.01}),
-                "strength": ("FLOAT", {"default": 0.64, "min": 0.01, "max": 2.0, "step": 0.01}),
-                "upscale_factor": (["1x", "2x", "4x", "6x"], {"default": "2x"}),
-                "mode": (["detail_only", "both"], {"default": "detail_only"}),
+                "skin_detail": ("FLOAT", {"default": default_skin_detail, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "eye_detail": ("FLOAT", {"default": default_eye_detail, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "baby_hair": ("FLOAT", {"default": default_baby_hair, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "film_grain": ("FLOAT", {"default": default_film_grain, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "naturalness": ("FLOAT", {"default": default_naturalness, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "strength": ("FLOAT", {"default": default_strength, "min": 0.01, "max": 2.0, "step": 0.01}),
+                "upscale_factor": (["1x", "2x", "4x", "6x"], {"default": default_upscale_factor}),
+                "mode": (["detail_only", "both"], {"default": default_mode}),
             },
             "optional": {
                 "enable_tiling": ("BOOLEAN", {"default": False}),
@@ -703,13 +733,35 @@ class RadzHumanSkinDetailsNode:
         return window
 
 
+class RadzSDXLSkinRealismNode(RadzHumanSkinDetailsNode):
+    CATEGORY = "Radz/SDXL"
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return cls._build_input_types(
+            default_upscale_preference="none",
+            default_upscale_2_preference="1xSkinContrast-High-SuperUltraCompact.pth",
+            default_upscale_3_preference="none",
+            default_skin_detail=0.72,
+            default_eye_detail=0.22,
+            default_baby_hair=0.08,
+            default_film_grain=0.00,
+            default_naturalness=0.88,
+            default_strength=0.52,
+            default_upscale_factor="1x",
+            default_mode="detail_only",
+        )
+
+
 NODE_CLASS_MAPPINGS = {
     "RodzRealHumanDetail": RadzHumanSkinDetailsNode,
     "RadzHumanSkinDetails": RadzHumanSkinDetailsNode,
+    "RadzSDXLSkinRealism": RadzSDXLSkinRealismNode,
 }
 
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "RodzRealHumanDetail": "Radz Human Skin Details",
     "RadzHumanSkinDetails": "Radz Human Skin Details",
+    "RadzSDXLSkinRealism": "Radz SDXL Skin Realism",
 }
