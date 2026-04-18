@@ -489,7 +489,11 @@ class RadzHumanSkinDetailsNode:
                 "upscale_model_2": (
                     upscale_models,
                     {
-                        "default": "none"
+                        "default": (
+                            "1xSkinContrast-High-SuperUltraCompact.pth"
+                            if "1xSkinContrast-High-SuperUltraCompact.pth" in upscale_models
+                            else "none"
+                        )
                     },
                 ),
                 "upscale_model_3": (
@@ -499,12 +503,12 @@ class RadzHumanSkinDetailsNode:
                     },
                 ),
                 "skin_enhancer_model": (upscale_models, {"default": default_skin}),
-                "skin_detail": ("FLOAT", {"default": 0.68, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "skin_detail": ("FLOAT", {"default": 0.74, "min": 0.01, "max": 1.0, "step": 0.01}),
                 "eye_detail": ("FLOAT", {"default": 0.24, "min": 0.01, "max": 1.0, "step": 0.01}),
                 "baby_hair": ("FLOAT", {"default": 0.10, "min": 0.01, "max": 1.0, "step": 0.01}),
                 "film_grain": ("FLOAT", {"default": 0.01, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "naturalness": ("FLOAT", {"default": 0.84, "min": 0.01, "max": 1.0, "step": 0.01}),
-                "strength": ("FLOAT", {"default": 0.58, "min": 0.01, "max": 2.0, "step": 0.01}),
+                "naturalness": ("FLOAT", {"default": 0.8, "min": 0.01, "max": 1.0, "step": 0.01}),
+                "strength": ("FLOAT", {"default": 0.64, "min": 0.01, "max": 2.0, "step": 0.01}),
                 "upscale_factor": (["1x", "2x", "4x", "6x"], {"default": "2x"}),
                 "mode": (["detail_only", "both"], {"default": "detail_only"}),
             },
