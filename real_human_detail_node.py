@@ -473,9 +473,13 @@ class RadzHumanSkinDetailsNode:
     def INPUT_TYPES(cls):
         upscale_models = ["none"] + folder_paths.get_filename_list("upscale_models")
         default_upscale = (
-            "RealESRGAN_x2.pth"
-            if "RealESRGAN_x2.pth" in upscale_models
-            else ("RealESRGAN_x4plus.safetensors" if "RealESRGAN_x4plus.safetensors" in upscale_models else upscale_models[0])
+            "4xFaceUpDAT.pth"
+            if "4xFaceUpDAT.pth" in upscale_models
+            else (
+                "RealESRGAN_x2.pth"
+                if "RealESRGAN_x2.pth" in upscale_models
+                else ("RealESRGAN_x4plus.safetensors" if "RealESRGAN_x4plus.safetensors" in upscale_models else upscale_models[0])
+            )
         )
         default_skin = (
             "x1_ITF_SkinDiffDetail_Lite_v1.pth"

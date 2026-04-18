@@ -152,7 +152,7 @@ This node expects an `IMAGE` input and outputs one `IMAGE`.
 
 For realistic portraits:
 
-- `upscale_model = RealESRGAN_x2.pth`
+- `upscale_model = 4xFaceUpDAT.pth`
 - `upscale_model_2 = 1xSkinContrast-High-SuperUltraCompact.pth`
 - `upscale_model_3 = none`
 - `skin_enhancer_model = x1_ITF_SkinDiffDetail_Lite_v1.pth`
@@ -172,11 +172,11 @@ For softer premium realism:
 
 Best skin-focused upscaler pairing:
 
-- `RealESRGAN_x2.pth` as the main upscaler
+- `4xFaceUpDAT.pth` as the main face-and-skin upscaler
 - `1xSkinContrast-High-SuperUltraCompact.pth` as the secondary texture shaper
 - `x1_ITF_SkinDiffDetail_Lite_v1.pth` as the skin enhancer
 
-This pairing is stronger on skin texture while still staying more natural than stacking several heavy 4x passes.
+This pairing is stronger on skin texture while still staying more natural than generic sharpness-focused upscalers.
 
 For a slightly richer photographic finish:
 
