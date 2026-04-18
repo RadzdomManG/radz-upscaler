@@ -152,13 +152,17 @@ This node expects an `IMAGE` input and outputs one `IMAGE`.
 
 For realistic portraits:
 
-- `skin_detail = 0.35`
-- `eye_detail = 0.35`
-- `baby_hair = 0.20`
-- `film_grain = 0.08`
-- `naturalness = 0.80`
-- `strength = 0.50`
-- `mode = both`
+- `upscale_model = RealESRGAN_x2.pth`
+- `upscale_model_2 = none`
+- `upscale_model_3 = none`
+- `skin_enhancer_model = x1_ITF_SkinDiffDetail_Lite_v1.pth`
+- `skin_detail = 0.68`
+- `eye_detail = 0.24`
+- `baby_hair = 0.10`
+- `film_grain = 0.01`
+- `naturalness = 0.84`
+- `strength = 0.58`
+- `mode = detail_only`
 
 For softer premium realism:
 
@@ -166,10 +170,18 @@ For softer premium realism:
 - lower `skin_detail`
 - keep `naturalness` high
 
+Best skin-focused upscaler pairing:
+
+- `RealESRGAN_x2.pth` as the main upscaler
+- `x1_ITF_SkinDiffDetail_Lite_v1.pth` as the skin enhancer
+
+This pairing is intentionally more natural than stacking multiple aggressive upscalers.
+
 For a slightly richer photographic finish:
 
-- raise `film_grain` a little
-- keep `naturalness` at `0.75` to `0.90`
+- set `mode = both`
+- keep `film_grain` very low, usually `0.01` to `0.03`
+- keep `naturalness` at `0.80` to `0.92`
 
 ## Implementation Notes
 
