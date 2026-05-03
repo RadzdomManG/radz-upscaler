@@ -1,0 +1,5 @@
+numpy>=1.26
+Pillow>=10
+opencv-python-headless>=4.10
+onnxruntime-gpu>=1.21,<1.25
+insightface==0.7.3

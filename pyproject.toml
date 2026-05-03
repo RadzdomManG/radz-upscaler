@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-radz-nodes"
+description = "Bundled Radz custom nodes for ComfyUI: upscaler, insight face IPAdapter, and human skin detail."
+version = "0.1.0"
+license = { file = "LICENSE" }
+
+[project.urls]
+Repository = "https://github.com/yourname/Radz-Nodes"
+
+[tool.comfy]
+PublisherId = "radz"
+DisplayName = "Radz Nodes"
+Icon = ""
+includes = ["/repositories/ultimate_sd_upscale/"]

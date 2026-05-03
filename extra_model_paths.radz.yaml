@@ -1,0 +1,6 @@
+radz_nodes:
+  base_path: custom_nodes/Radz Nodes/bundled_models
+  is_default: false
+  clip_vision: clip_vision
+  ipadapter: ipadapter
+  loras: loras
