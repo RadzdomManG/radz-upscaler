@@ -1,14 +1,14 @@
 [project]
-name = "comfyui-radz-nodes"
-description = "Bundled Radz custom nodes for ComfyUI: upscaler, insight face IPAdapter, and human skin detail."
+name = "comfyui-radz-human-skin-details"
+description = "Bundled Radz custom nodes for ComfyUI under the Radz Human Skin details package."
 version = "0.1.0"
 license = { file = "LICENSE" }
 
 [project.urls]
-Repository = "https://github.com/yourname/Radz-Nodes"
+Repository = "https://github.com/RadzdomManG/radz_human_skin_details"
 
 [tool.comfy]
 PublisherId = "radz"
-DisplayName = "Radz Nodes"
+DisplayName = "Radz Human Skin details"
 Icon = ""
 includes = ["/repositories/ultimate_sd_upscale/"]

@@ -25,9 +25,9 @@ if [[ -z "${COMFY_DIR}" ]]; then
   exit 1
 fi
 
-RADZ_DIR="${COMFY_DIR}/custom_nodes/Radz Nodes"
+RADZ_DIR="${COMFY_DIR}/custom_nodes/Radz Human Skin details"
 if [[ ! -d "${RADZ_DIR}" ]]; then
-  echo "Radz Nodes not found at: ${RADZ_DIR}"
+  echo "Radz Human Skin details not found at: ${RADZ_DIR}"
   echo "Copy this folder into ${COMFY_DIR}/custom_nodes first."
   exit 1
 fi
@@ -50,7 +50,7 @@ mkdir -p "${RADZ_DIR}/bundled_models/insightface"
 
 cat > "${COMFY_DIR}/extra_model_paths.yaml" <<'YAML'
 radz_nodes:
-  base_path: custom_nodes/Radz Nodes/bundled_models
+  base_path: custom_nodes/Radz Human Skin details/bundled_models
   is_default: false
   clip_vision: clip_vision
   ipadapter: ipadapter
@@ -58,7 +58,7 @@ radz_nodes:
 YAML
 
 echo ""
-echo "Radz Nodes Runpod CUDA13 install complete."
+echo "Radz Human Skin details Runpod CUDA13 install complete."
 echo "Next steps:"
 echo "  1. Place model files into ${RADZ_DIR}/bundled_models"
 echo "  2. Restart ComfyUI"

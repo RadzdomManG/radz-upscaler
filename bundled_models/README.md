@@ -1,4 +1,4 @@
-# Radz Nodes Bundled Models
+# Radz Human Skin details Bundled Models
 
 This folder is the single-place model home for the `Radz Nodes` bundle.
 

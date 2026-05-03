@@ -1,4 +1,4 @@
-# Radz Nodes on Runpod `runpod/comfyui:cuda13.0`
+# Radz Human Skin details on Runpod `runpod/comfyui:cuda13.0`
 
 This bundle is prepared for a fresh official Runpod ComfyUI pod using the CUDA 13 line.
 
@@ -26,15 +26,15 @@ References:
 - `Radz Ultimate Upscaler`
 - `Radz Insight Face ...` IPAdapter nodes
 - `Radz Real Human Detail`
-- bundled model directory layout under `Radz Nodes/bundled_models`
+- bundled model directory layout under `Radz Human Skin details/bundled_models`
 - optional FaceID / InsightFace dependency install path
 
 ## Recommended install flow on Runpod
 
-1. Put `Radz Nodes` in `ComfyUI/custom_nodes/`
+1. Put `Radz Human Skin details` in `ComfyUI/custom_nodes/`
 2. Run `install_runpod_cuda13.sh`
 3. Restart ComfyUI
-4. Add model files into `Radz Nodes/bundled_models`
+4. Add model files into `Radz Human Skin details/bundled_models`
 
 ## Important note about FaceID
 

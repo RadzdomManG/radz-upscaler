@@ -1,4 +1,4 @@
-# Radz Nodes
+# Radz Human Skin details
 
 Bundled ComfyUI custom nodes for:
 
@@ -27,7 +27,7 @@ Skin, eye, baby hair, and realism enhancement node bundled from your existing Ra
 Place this folder into:
 
 ```text
-ComfyUI/custom_nodes/Radz Nodes
+ComfyUI/custom_nodes/Radz Human Skin details
 ```
 
 Then restart ComfyUI.
@@ -35,13 +35,13 @@ Then restart ComfyUI.
 For a fresh Runpod CUDA 13 pod, use:
 
 ```text
-Radz Nodes/install_runpod_cuda13.sh
+Radz Human Skin details/install_runpod_cuda13.sh
 ```
 
 Additional Runpod notes are in:
 
 ```text
-Radz Nodes/RUNPOD.md
+Radz Human Skin details/RUNPOD.md
 ```
 
 ## What Is Already Bundled
@@ -55,13 +55,13 @@ The code for these node packs is already included inside this single folder:
 There is also a bundled single-place model layout inside:
 
 ```text
-Radz Nodes/bundled_models
+Radz Human Skin details/bundled_models
 ```
 
 and a helper setup script:
 
 ```text
-Radz Nodes/setup_radz_nodes.ps1
+Radz Human Skin details/setup_radz_nodes.ps1
 ```
 
 That means you do not need to separately clone those repositories just to get the node code itself.
@@ -77,17 +77,17 @@ This is especially important for IPAdapter / InsightFace workflows.
 Recommended directories:
 
 ```text
-Radz Nodes/bundled_models/clip_vision
-Radz Nodes/bundled_models/ipadapter
-Radz Nodes/bundled_models/loras
-Radz Nodes/bundled_models/insightface
+Radz Human Skin details/bundled_models/clip_vision
+Radz Human Skin details/bundled_models/ipadapter
+Radz Human Skin details/bundled_models/loras
+Radz Human Skin details/bundled_models/insightface
 ```
 
 For the Unified Loader, filenames must match the expected names exactly.
 
 `clip_vision`, `ipadapter`, and `loras` can be exposed to ComfyUI through `extra_model_paths.yaml`.
 
-`insightface` is checked directly from `Radz Nodes/bundled_models/insightface` first by the bundled Radz Insight Face loader.
+`insightface` is checked directly from `Radz Human Skin details/bundled_models/insightface` first by the bundled Radz Insight Face loader.
 
 ### `ComfyUI/models/clip_vision`
 

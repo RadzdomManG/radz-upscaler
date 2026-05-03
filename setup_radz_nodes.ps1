@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $comfyRoot = "D:\ComfyUI_windows_portable_nvidia\ComfyUI_windows_portable\ComfyUI"
-$radzRoot = Join-Path $comfyRoot "custom_nodes\Radz Nodes"
+$radzRoot = Join-Path $comfyRoot "custom_nodes\Radz Human Skin details"
 $bundledModels = Join-Path $radzRoot "bundled_models"
 $extraModelPaths = Join-Path $comfyRoot "extra_model_paths.yaml"
 
@@ -12,7 +12,7 @@ New-Item -ItemType Directory -Force (Join-Path $bundledModels "insightface") | O
 
 $yaml = @"
 radz_nodes:
-  base_path: custom_nodes/Radz Nodes/bundled_models
+  base_path: custom_nodes/Radz Human Skin details/bundled_models
   is_default: false
   clip_vision: clip_vision
   ipadapter: ipadapter
@@ -21,7 +21,7 @@ radz_nodes:
 
 Set-Content -LiteralPath $extraModelPaths -Value $yaml -Encoding UTF8
 
-Write-Host "Radz Nodes model paths configured:"
+Write-Host "Radz Human Skin details model paths configured:"
 Write-Host "  $bundledModels"
 Write-Host "ComfyUI extra model paths written to:"
 Write-Host "  $extraModelPaths"
